@@ -19,19 +19,19 @@ jobs:
          name: Login to GitHub Container Registery
          uses: docker/login-action@v1 
          with:
-            registry: ghcr.io
-            username: ${{ github.repository_owner }}
-            password: ${{ secrets.CR_PAT }}
-
+          registry: docker.pkg.github.com
+          username: ${{ github.actor }}
+          password: ${{ secrets.CR_PAT }}
+          repository: kitspace/gitea/gitea-image
+          tag_with_ref: true
       - 
         name: Push to GitHub Packages
         uses: docker/build-push-action@v2
         with:
           context: .
           file: ./Dockerfile
-          push: true
-          tags: |
-            ghcr.io/kitspace/docker-nginx-certbot-plugin:latest
+          push: true          
+          tags: AbdulrhmnGhanem/docker-nginx-certbot-plugin:latest
       - 
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
