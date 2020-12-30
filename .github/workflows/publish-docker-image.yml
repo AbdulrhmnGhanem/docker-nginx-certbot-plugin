@@ -31,7 +31,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true          
-          tags: AbdulrhmnGhanem/docker-nginx-certbot-plugin:latest
+          tags: docker.pkg.github.com/AbdulrhmnGhanem/docker-nginx-certbot-plugin:latest
       - 
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
