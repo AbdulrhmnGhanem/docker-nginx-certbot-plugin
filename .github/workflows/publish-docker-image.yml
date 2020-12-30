@@ -31,7 +31,6 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ghcr.io/AbdulrhmnGhanem/docker-nginx-certbot-plugin:${{ github.event.release.tag_name }}
             ghcr.io/kitspace/docker-nginx-certbot-plugin:latest
       - 
         name: Image digest
